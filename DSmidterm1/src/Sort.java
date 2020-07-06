@@ -51,14 +51,14 @@ public class Sort {
 		//INSERTION SORT
 		public static int[] insertionSort(int[] x) {
 			for (int i=1; i < x.length; i++) {
-				int temp = x[i];
-				int j = i - 1;
+				int temp = x[i]; //starting at index 1
+				int j = i - 1; //setting to index 0
 				//comparing j and swapping into appropriate index if smaller
 				while (j >= 0 && temp <= x[j]) {
 					x[j+1] = x[j];
 					j = j -1;
 				}
-				x[j+1] = temp;
+				x[j+1] = temp; 
 			}
 			return x;
 		}
@@ -154,29 +154,29 @@ public class Sort {
 				right1[j] = x[mid + 1 + j];
 			}
 			
-			int i = 0;
-			int j = 0;
-			int k = low; 
+			int i = 0; //index for left
+			int j = 0; //index for right
+			int k = low; //index for the number variables
 			while(i < left && j < right) {
 				int leftVar = left1[i];
 				int rightVar = right1[j];
 				if(leftVar < rightVar) {
-					x[k] = leftVar;
-					i++; //increases left side 
+					x[k] = leftVar; //left variable is smaller so keep track of it
+					i++; //increases left side index
 				} else {
 					x[k] = rightVar;
-					j++; //increases right side
+					j++; //increases right side index
 				}
 				k++; //increases the index of all numbers
 			}
-			// copies left into the numbers
+			// copies left side into the numbers
 			while(i < left) {
 				x[k] = left1[i];
 				k++;
 				i++;
 				
 			} 
-			//copies right into the numbers
+			//copies right side into the numbers
 				while(j < right) {
 					x[k] = right1[j];
 					j++;
